@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professional Cricket NRR Utility</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="calculator-container">
+        <header>
+            <h1>Cricket NRR Tool</h1>
+            <p>Precise Base-6 Overs Calculation</p>
+        </header>
+
+        <main id="nrr-form">
+            <!-- Match Settings -->
+            <section class="input-group">
+                <h3>Match Settings</h3>
+                <div class="field">
+                    <label for="max-overs">Maximum Match Overs (Quota)</label>
+                    <input type="number" id="max-overs" value="20" min="1">
+                </div>
+            </section>
+
+            <div class="grid-layout">
+                <!-- Batting Performance -->
+                <section class="card">
+                    <h3>Team A (Scored)</h3>
+                    <div class="field">
+                        <label>Total Runs Scored</label>
+                        <input type="number" id="runs-for" placeholder="e.g. 185">
+                    </div>
+                    <div class="field">
+                        <label>Overs Faced (e.g. 10.5)</label>
+                        <input type="number" step="0.1" id="overs-faced" placeholder="10.5">
+                        <small class="hint">.1 to .5 represents balls</small>
+                    </div>
+                    <div class="checkbox-field">
+                        <input type="checkbox" id="all-out-for">
+                        <label for="all-out-for">Team All Out?</label>
+                    </div>
+                </section>
+
+                <!-- Bowling Performance -->
+                <section class="card">
+                    <h3>Team B (Conceded)</h3>
+                    <div class="field">
+                        <label>Total Runs Conceded</label>
+                        <input type="number" id="runs-against" placeholder="e.g. 160">
+                    </div>
+                    <div class="field">
+                        <label>Overs Bowled (e.g. 20.0)</label>
+                        <input type="number" step="0.1" id="overs-bowled" placeholder="20.0">
+                    </div>
+                    <div class="checkbox-field">
+                        <input type="checkbox" id="all-out-against">
+                        <label for="all-out-against">Opponent All Out?</label>
+                    </div>
+                </section>
+            </div>
+
+            <div class="button-group">
+                <button id="calculate-btn" class="btn-primary">Calculate NRR</button>
+                <button id="reset-btn" class="btn-secondary">Reset Fields</button>
+            </div>
+
+            <!-- Result Display -->
+            <div id="result-container" class="hidden">
+                <span class="result-label">Net Run Rate (NRR)</span>
+                <span id="nrr-value">0.000</span>
+                <p id="error-msg" class="error hidden"></p>
+                <p id="math-debug" class="debug-text"></p>
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
